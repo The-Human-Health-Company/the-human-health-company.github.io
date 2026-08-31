@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Human Health Company — Coming Soon</title>
+<meta name="description" content="The Human Health Company. A new inquiry into human health. Coming soon.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --wall: #16211c;
+    --wall-light: #22312a;
+    --paper: #e9dfc8;
+    --paper-shade: #ddd0b4;
+    --ink: #2a2118;
+    --sepia: #7a6a52;
+    --seal: #9e3b26;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse at 50% 30%, var(--wall-light) 0%, var(--wall) 65%);
+    background-color: var(--wall);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.25rem;
+    font-family: "EB Garamond", Georgia, "Times New Roman", serif;
+    color: var(--ink);
+  }
+
+  /* ——— The plate ——— */
+  .plate {
+    position: relative;
+    width: 100%;
+    max-width: 680px;
+    background:
+      linear-gradient(160deg, var(--paper) 0%, var(--paper) 55%, var(--paper-shade) 100%);
+    padding: 3.25rem 3rem 2.5rem;
+    box-shadow:
+      0 1px 2px rgba(0,0,0,.4),
+      0 12px 40px rgba(0,0,0,.5),
+      0 30px 80px rgba(0,0,0,.35);
+    text-align: center;
+    overflow: hidden;
+  }
+
+  /* engraved double-rule frame */
+  .plate::before {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    border: 1px solid var(--sepia);
+    outline: 3px double var(--sepia);
+    outline-offset: 4px;
+    pointer-events: none;
+    opacity: .75;
+    z-index: 2;
+  }
+
+  /* paper grain */
+  .plate::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: .5;
+    z-index: 2;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.38 0 0 0 0 0.28 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .plate > * { position: relative; z-index: 1; }
+
+  /* ——— Leonardo's ink, dissolved into the paper ——— */
+  .fragment {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    filter: sepia(.25) brightness(1.12) contrast(1.02) saturate(.85);
+    -webkit-mask-image: radial-gradient(ellipse 52% 52% at center, #000 38%, transparent 74%);
+    mask-image: radial-gradient(ellipse 52% 52% at center, #000 38%, transparent 74%);
+    background-repeat: no-repeat;
+  }
+
+  .fragment-skull {
+    top: 4.5%;
+    right: -3.5%;
+    width: 200px;
+    aspect-ratio: .9;
+    transform: rotate(5deg);
+    opacity: .5;
+    background-image: url("assets/skull.jpg");
+    background-size: 240%;
+    background-position: 55% 24%;
+  }
+
+  .fragment-hands {
+    top: 30%;
+    left: -4.5%;
+    width: 210px;
+    aspect-ratio: 1;
+    transform: rotate(-6deg);
+    opacity: .5;
+    background-image: url("assets/hands.jpg");
+    background-size: 230%;
+    background-position: 32% 86%;
+  }
+
+  .fragment-shoulder {
+    bottom: 17%;
+    left: -4%;
+    width: 200px;
+    aspect-ratio: .95;
+    transform: rotate(-3deg);
+    opacity: .45;
+    background-image: url("assets/shoulder.jpg");
+    background-size: 220%;
+    background-position: 52% 4%;
+  }
+
+  .fragment-foetus {
+    bottom: 4%;
+    right: -4.5%;
+    width: 215px;
+    aspect-ratio: 1;
+    transform: rotate(4deg);
+    opacity: .5;
+    background-image: url("assets/foetus.jpg");
+    background-size: 230%;
+    background-position: 6% 42%;
+  }
+
+  .corner-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: "IM Fell English", serif;
+    font-style: italic;
+    font-size: .95rem;
+    color: var(--sepia);
+    margin-bottom: 2.25rem;
+  }
+
+  .title-the {
+    font-family: "IM Fell English", serif;
+    font-size: 1.05rem;
+    letter-spacing: .45em;
+    text-indent: .45em; /* balances tracking on centered text */
+    text-transform: uppercase;
+    color: var(--sepia);
+    margin-bottom: .6rem;
+  }
+
+  h1 {
+    font-family: "IM Fell English", serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1.08;
+    letter-spacing: .06em;
+    font-size: clamp(2rem, 6.5vw, 3.1rem);
+  }
+  h1 .line-2 {
+    display: block;
+    font-size: .62em;
+    letter-spacing: .18em;
+    margin-top: .35rem;
+  }
+
+  .fleuron {
+    font-family: "IM Fell English", serif;
+    color: var(--sepia);
+    font-size: 1.2rem;
+    margin: 1.4rem 0 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: .9rem;
+    justify-content: center;
+  }
+  .fleuron::before, .fleuron::after {
+    content: "";
+    height: 1px;
+    width: 72px;
+    background: var(--sepia);
+    opacity: .6;
+  }
+
+  .subtitle {
+    font-style: italic;
+    font-size: clamp(1.05rem, 2.6vw, 1.2rem);
+    line-height: 1.55;
+    max-width: 26em;
+    margin: 0 auto;
+    color: #4a3d2e;
+  }
+
+  /* ——— The Vitruvian figure, drawn on the page itself ——— */
+  .vitruvian {
+    width: min(400px, 86%);
+    aspect-ratio: 1.12;
+    margin: 1.4rem auto .6rem;
+    overflow: hidden;
+    -webkit-mask-image: radial-gradient(ellipse 58% 58% at center, #000 55%, transparent 88%);
+    mask-image: radial-gradient(ellipse 58% 58% at center, #000 55%, transparent 88%);
+  }
+  .vitruvian img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 43%;
+    display: block;
+    mix-blend-mode: multiply;
+    filter: sepia(.12) brightness(1.24) contrast(1.07) saturate(.85);
+  }
+
+  /* ——— Status ——— */
+  .status {
+    font-family: "IM Fell English", serif;
+    text-transform: uppercase;
+    letter-spacing: .5em;
+    text-indent: .5em;
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    color: var(--seal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.2rem;
+  }
+  .status::before, .status::after {
+    content: "❦";
+    font-size: .85em;
+    letter-spacing: 0;
+    text-indent: 0;
+    opacity: .8;
+  }
+
+  .colophon {
+    margin-top: 2.4rem;
+    padding-top: 1.2rem;
+    font-size: .92rem;
+    color: var(--sepia);
+  }
+  .colophon a {
+    font-family: "IM Fell English", serif;
+    font-style: italic;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--sepia);
+    padding-bottom: 1px;
+  }
+  .colophon a:hover { color: var(--seal); border-bottom-color: var(--seal); }
+  .colophon a:focus-visible {
+    outline: 2px solid var(--seal);
+    outline-offset: 3px;
+  }
+
+  /* ——— Reveal ——— */
+  .vitruvian { opacity: 0; animation: appear 1.4s ease-out forwards .4s; }
+  .fragment { animation: fade-to var(--o, .5) 1.2s ease-out forwards; opacity: 0; }
+  .fragment-skull    { animation-delay: 1.2s; }
+  .fragment-hands    { animation-delay: 1.5s; }
+  .fragment-shoulder { animation-delay: 1.8s; }
+  .fragment-foetus   { animation-delay: 2.1s; }
+  @keyframes appear { to { opacity: 1; } }
+  @keyframes fade-to { to { opacity: var(--o, .5); } }
+
+  .plate { animation: settle 1s ease-out both; }
+  @keyframes settle {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vitruvian { animation: none; opacity: 1; }
+    .fragment { animation: none; opacity: var(--o, .5); }
+    .plate { animation: none; }
+  }
+
+  @media (max-width: 600px) {
+    .fragment-hands, .fragment-shoulder { display: none; }
+    .fragment-skull  { width: 150px; top: 3%; right: -8%; }
+    .fragment-foetus { width: 160px; bottom: 2%; right: -8%; }
+  }
+
+  @media (max-width: 480px) {
+    body { padding: 1.5rem .75rem; }
+    .plate { padding: 2.5rem 1.4rem 1.8rem; }
+    .plate::before { inset: 9px; outline-offset: 3px; }
+    .corner-row { margin-bottom: 1.6rem; }
+    .status { letter-spacing: .3em; text-indent: .3em; }
+  }
+</style>
+</head>
+<body>
+  <main class="plate">
+    <div class="fragment fragment-skull" style="--o:.5" aria-hidden="true"></div>
+    <div class="fragment fragment-hands" style="--o:.5" aria-hidden="true"></div>
+    <div class="fragment fragment-shoulder" style="--o:.45" aria-hidden="true"></div>
+    <div class="fragment fragment-foetus" style="--o:.5" aria-hidden="true"></div>
+
+    <div class="corner-row" aria-hidden="true">
+      <span>Plate I.</span>
+      <span>MMXXVI.</span>
+    </div>
+
+    <p class="title-the">The</p>
+    <h1>
+      Human Health
+      <span class="line-2">Company</span>
+    </h1>
+
+    <div class="fleuron" aria-hidden="true">❧</div>
+
+    <p class="subtitle">
+      Being a new inquiry into the nature, variation, &amp;
+      improvement of human health.
+    </p>
+
+    <div class="vitruvian">
+      <img src="assets/vitruvian-man.jpg"
+           alt="Leonardo da Vinci’s Vitruvian Man, drawn in ink on the page"
+           width="960" height="1305">
+    </div>
+
+    <p class="status">Coming Soon</p>
+
+    <footer class="colophon">
+      <a href="https://github.com/The-Human-Health-Company">github.com/The-Human-Health-Company</a>
+    </footer>
+  </main>
+</body>
+</html>
